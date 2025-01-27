@@ -3,7 +3,7 @@ import Icon from '@mdi/react';
 import { Link, useLocation } from 'react-router-dom';
 import headerlogo from '../assets/headerlogo.png';
 import { mdiMagnify, mdiAccountCircle } from '@mdi/js';
-import './HeaderDesktopStyle.css'
+import './HeaderDesktopStyle.scss'
 
 function Header() {
     const location = useLocation();

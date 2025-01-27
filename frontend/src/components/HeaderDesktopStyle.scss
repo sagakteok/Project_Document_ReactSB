@@ -1,0 +1,30 @@
+.headertext {
+  font-family: "SpoqaHanSansNeo-Light";
+  margin-left: 35px;
+  text-decoration: none;
+  color: #2B354F;
+  font-size: 16px;
+
+  &:hover, &.active {
+    transition: all 0.2s ease-in-out;
+    color: #4B7BF2;
+  }
+
+  &.active {
+    font-family: "SpoqaHanSansNeo-medium";
+  }
+}
+
+.headericon {
+  margin-right: 20px;
+  color: #BCC4DB;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: #4B7BF2;
+  }
+
+  &.active {
+    color: #4B7BF2;
+  }
+}
