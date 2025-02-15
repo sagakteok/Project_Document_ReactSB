@@ -8,7 +8,7 @@ import './HeaderDesktopStyle.scss'
 function Header() {
     const location = useLocation();
     return (
-        <header style={{ backgroundColor: '#FFFFFF', width: '100vw', height: '60px', display: 'flex', alignItems: 'center' }}>
+        <header style={{ position: 'fixed', zIndex: '4', backgroundColor: '#FFFFFF', width: '100vw', height: '60px', display: 'flex', alignItems: 'center' }}>
             <div style={{ width: '1100px', margin: 'auto', display: 'flex', alignItems: 'center' }}>
                 {/* 로고 */}
                 <Link to="/">
