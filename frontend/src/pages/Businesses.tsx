@@ -1,6 +1,6 @@
 // pages/AllDocuments.tsx
 import React from 'react';
-import HeaderDesktop from "../components/HeaderDesktop.tsx";
+import HeaderDesktop from "../components/Header/HeaderDesktop.tsx";
 
 function Businesses() {
     return (

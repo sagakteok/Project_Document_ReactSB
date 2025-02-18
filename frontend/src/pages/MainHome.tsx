@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Header from '../components/HeaderDesktop.tsx';
+import Header from '../components/Header.tsx';
 import './MainHome.scss';
 import Section1_1 from '../assets/Section1-1.png';
 import Section1_2 from '../assets/Section1-2.png';
@@ -38,8 +38,8 @@ function MainHome() {
                     if (!ref.current) return false;
                     const rect = ref.current.getBoundingClientRect();
                     return (
-                        rect.top <= window.innerHeight * 0.7 &&
-                        rect.bottom >= window.innerHeight * 0.3
+                        rect.top <= window.innerHeight * 0.8 &&
+                        rect.bottom >= window.innerHeight * 0.2
                     );
                 })
                 .map(({ id }) => id);
@@ -102,9 +102,9 @@ function MainHome() {
                             <p style={{marginTop: 'clamp(100px, 14vh, 160px)'}}>원하는 민원문서,</p>
                             <p>처리하고 싶은 업무,</p>
                             <p>한 곳에서 찾아보세요.</p>
-                            <div style={{position: 'relative', marginTop: '50px'}}>
-                                <Button style={{backgroundColor: '#414B6A', width: '120px', height: '40px', borderRadius: '9px', fontFamily: 'SpoqaHanSansNeo-Medium', fontSize: '15px', color: '#FFFFFF', textTransform: 'none'}}>App Store</Button>
-                                <Button style={{backgroundColor: '#414B6A', width: '120px', height: '40px', marginLeft: '8px', borderRadius: '9px', fontFamily: 'SpoqaHanSansNeo-Medium', fontSize: '14px', color: '#FFFFFF', textTransform: 'none'}}>Google Play</Button>
+                            <div style={{marginTop: '50px'}}>
+                                <Button style={{backgroundColor: '#414B6A', width: '120px', height: '40px', borderRadius: '9px', fontFamily: 'SpoqaHanSansNeo-Medium', fontSize: '15px', color: '#FFFFFF', textTransform: 'none', zIndex: '2'}}>App Store</Button>
+                                <Button style={{backgroundColor: '#414B6A', width: '120px', height: '40px', marginLeft: '8px', borderRadius: '9px', fontFamily: 'SpoqaHanSansNeo-Medium', fontSize: '14px', color: '#FFFFFF', textTransform: 'none', zIndex: '2'}}>Google Play</Button>
                             </div>
                         </div>
                         <div className="right-content-one">
