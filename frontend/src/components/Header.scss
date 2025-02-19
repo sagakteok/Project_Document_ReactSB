@@ -1,0 +1,60 @@
+$primary-color: #2B354F;
+$hover-color: #4B7BF2;
+$icon-color: #BCC4DB;
+$font-light: "SpoqaHanSansNeo-Light";
+$font-medium: "SpoqaHanSansNeo-medium";
+
+.header {
+  font-family: $font-light;
+  text-decoration: none;
+  font-size: 14px;
+  color: $primary-color;
+  transition: all 0.2s ease-in-out;
+
+  &.active {
+    font-family: $font-medium;
+    color: $hover-color;
+  }
+
+  &:hover {
+    color: $hover-color;
+  }
+}
+
+.icon {
+  color: $icon-color;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &.active {
+    color: $hover-color;
+  }
+}
+
+// 데스크톱 스타일
+.desktop-header {
+  display: flex;
+  align-items: center;
+
+  &_text {
+    @extend .header;
+    margin-left: 35px;
+  }
+
+  &_icon {
+    @extend .icon;
+    margin-right: 20px;
+  }
+}
+
+// 모바일 스타일
+.mobile-header {
+  &_text {
+    @extend .header;
+    margin-left: 5px;
+  }
+
+  &_icon {
+    @extend .icon;
+  }
+}
