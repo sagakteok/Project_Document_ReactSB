@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
     <title>서류봉투: 증명서 알려주는 앱</title>
   </head>
   <body>
@@ -11,3 +11,17 @@
     <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>
+
+<style>
+  html, body {
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  </style>

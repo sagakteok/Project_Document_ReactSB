@@ -1,7 +1,7 @@
 // AppRouter.tsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MainHome from './pages/MainHome';
+import MainHome from './pages/MainHome.tsx';
 import AllDocuments from './pages/AllDocuments';
 import Businesses from "./pages/Businesses.tsx";
 import TownCommunity from "./pages/TownCommunity.tsx";

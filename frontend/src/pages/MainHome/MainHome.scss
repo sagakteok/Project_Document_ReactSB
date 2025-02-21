@@ -1,0 +1,1134 @@
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Thin';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Medium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'VITRO CORE OTF';
+    src: url('../../fonts/VITRO\ CORE\ OTF.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-thin: "SpoqaHanSansNeo-Thin";
+$font-light: "SpoqaHanSansNeo-Light";
+$font-regular: "SpoqaHanSansNeo-Regular";
+$font-medium: "SpoqaHanSansNeo-Medium";
+$font-bold: "SpoqaHanSansNeo-Bold";
+$document-title: "VITRO CORE OTF";
+
+.main-home {
+    width: 100vw;
+}
+
+section {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// 데스크톱 사이즈
+@media (min-width: 700px) {
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    // 📝 .maintitle (왼쪽 → 오른쪽)
+    .section.one .left-content-one .maintitle {
+        opacity: 0;
+        animation: slideInLeft 0.8s ease-out forwards;
+        animation-delay: 0s;
+    }
+    
+    // 🖼️ right-content 이미지 (오른쪽 → 왼쪽, 0.3초 후 등장)
+    .section.one .right-content-one img {
+        opacity: 0;
+        animation: slideInRight 0.8s ease-out forwards;
+        animation-delay: 0.3s;
+    }
+    
+    // 📝 left-content의 p 태그 & 버튼들 (왼쪽 → 오른쪽, 0.6초 후 등장)
+    .section.one .left-content-one p,
+    .section.one .left-content-one button {
+        opacity: 0;
+        animation: slideInLeft 0.8s ease-out forwards;
+        animation-delay: 0.6s;
+    }
+    
+    $fade-in-sections: (two, three, four, five, six, seven, eight);
+    
+    @each $name in $fade-in-sections {
+        // 기본적으로 모든 <p> 태그는 페이드인 적용
+        .section.#{$name} .text-container-#{$name} p,
+        .section.#{$name} .left-content-#{$name} p {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 1s ease, transform 1.5s ease;
+        }
+    
+        .section.#{$name}.visible .text-container-#{$name} p,
+        .section.#{$name}.visible .left-content-#{$name} p {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        // 🖼️ right-content img는 0.5초 후 등장
+        .section.#{$name} .right-content-#{$name} img {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease 0.5s, transform 1.5s ease 0.5s;
+        }
+    
+        .section.#{$name}.visible .right-content-#{$name} img {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    // 🎯 3번 섹션 (좌우 이동 적용)
+    .section.three .left-content-three p {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 1s ease, transform 1.5s ease;
+    }
+    
+    .section.three.visible .left-content-three p {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .section.three .right-content-three img {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 1s ease 0.5s, transform 1.5s ease 0.5s;
+    }
+    
+    .section.three.visible .right-content-three img {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    // 🎯 5번 섹션 (좌우 이동 적용)
+    .section.five .left-content-five p {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 1s ease, transform 1.5s ease;
+    }
+    
+    .section.five.visible .left-content-five p {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .section.five .right-content-five img {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 1s ease 0.5s, transform 1.5s ease 0.5s;
+    }
+    
+    .section.five.visible .right-content-five img {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    // 📝 smalltitle - right-content 등장 후 0.5초 후 나타남
+    .section.five .left-content-five .smalltitle {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease 1s, transform 1.5s ease 1s;
+    }
+    
+    .section.five.visible .left-content-five .smalltitle {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    // 🎯 6번 섹션 (순차적 등장)
+    .section.six .left-content-six p {
+        opacity: 0;
+        transform: translateY(100px);
+        transition: opacity 1s ease, transform 1.5s ease;
+    }
+    
+    .section.six.visible .left-content-six p {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    // 🖼️ right-content img (0.5초 후 등장)
+    .section.six .right-content-six img {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease 0.5s, transform 1.5s ease 0.5s;
+    }
+    
+    .section.six.visible .right-content-six img {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    // 🖼️ left-content img (1초 후 등장)
+    .section.six .left-content-six img {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease 1s, transform 1.5s ease 1s;
+    }
+    
+    .section.six.visible .left-content-six img {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    // 📝 right-content p (1.5초 후 등장)
+    .section.six .right-content-six p {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease 1.5s, transform 1.5s ease 1.5s;
+    }
+    
+    .section.six.visible .right-content-six p {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    // 🎯 7번 섹션 (좌우 이동 및 중앙 이미지 페이드인 적용)
+    .section.seven .center-content-seven img {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease, transform 1.5s ease;
+    }
+    
+    .section.seven.visible .center-content-seven img {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    // 📝 left-content p (0.5초 후 등장)
+    .section.seven .left-content-seven p {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 1s ease 0.5s, transform 1.5s ease 0.5s;
+    }
+    
+    .section.seven.visible .left-content-seven p {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    // 📝 right-content p (1초 후 등장)
+    .section.seven .right-content-seven p {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 1s ease 1s, transform 1.5s ease 1s;
+    }
+    
+    .section.seven.visible .right-content-seven p {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    // 🎯 8번 섹션 (기본 페이드인)
+    .section.eight .text-container-eight p {
+        opacity: 0;
+        transform: translateY(100px);
+        transition: opacity 1s ease, transform 1.5s ease;
+    }
+    
+    .section.eight.visible .text-container-eight p {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    // ✨ 섹션별 높이 및 배경 스타일
+    $sections: (
+        one: (min-height: 620px, height: 100vh, background: linear-gradient(to bottom, #FFFFFF 0%, #F8FAFF 67%, #E9F0FF 89%, #DFE8FF 100%)),
+        two: (height: 650px, background-color: #FFFFFF),
+        three: (height: 1050px, background-color: #F9FAFB),
+        four: (height: 700px, background-color: #FFFFFF),
+        five: (height: 1050px, background-color: #FBFCFF),
+        six: (height: 1520px, background-color: #FFFFFF),
+        seven: (height: 1050px, background-color: #F8FAFF),
+        eight: (min-height: 300px, height: 100vh, background-color: #FFFFFF),
+        nine: (min-height: 300px, height: 100vh, background-color: #2B354F)
+    );
+    
+    @each $name, $properties in $sections {
+        .section.#{$name} {
+            @each $property, $value in $properties {
+                #{$property}: $value;
+            }
+        }
+    }
+
+    .text-container-one {
+        position: relative;
+        width: 1100px;
+    
+        .left-content-one {
+            position: relative;
+            margin-left: 50px;
+            left: 0%;
+            top: 0%;
+            bottom: 0%;
+    
+            .maintitle {
+                position: relative;
+                font-family: $font-thin;
+                font-size: 55px;
+                color: #414B6A;
+                z-index: 3;
+            }
+        
+            .maintitle-highlight {
+                position: relative;
+                font-family: $font-bold;
+                font-size: 60px;
+                color: #4B7BF2;
+                z-index: 3;
+            }
+        
+            p {
+                position: relative;
+                font-family: $font-medium;
+                font-size: 30px;
+                color: #2B354F;
+                line-height: 0.7;
+                z-index: 1;
+            }
+        }
+    
+        .right-content-one {
+            position: absolute;
+            margin-right: 50px;
+            z-index: 1;
+            display: flex; 
+            align-items: center;
+            right: 0%;
+            top: 0%;
+            bottom: 0%;
+        }
+    }
+    
+    .text-container-two {
+        width: 1100px;
+        text-align: center;
+    
+        p {
+            font-family: $font-medium;
+            font-size: 35px;
+            color: #2B354F;
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+    
+        .highlight {
+            font-family: $font-bold;
+            color: #4B7BF2;
+        }
+    }
+    
+    .text-container-three {
+        position: relative;
+        width: 1100px;
+    
+        .left-content-three {
+            position: relative;
+            margin-left: 50px;
+            z-index: 2;
+            left: 0%;
+            top: 0%;
+            bottom: 0%;
+    
+            .maintitle {
+                font-family: $font-bold;
+                font-size: 25px;
+                color: #4B7BF2;
+                margin-top: 260px;
+            }
+        
+            p {
+                font-family: $font-medium;
+                font-size: 40px;
+                color: #000000;
+                line-height: 0.6;
+            }
+        }
+    
+        .right-content-three {
+            position: absolute;
+            margin-right: 50px;
+            z-index: 1;
+            display: flex; 
+            align-items: center;
+            right: 0%;
+            top: 0%;
+            bottom: 0%;
+        }
+    }
+    
+    .text-container-four {
+        width: 1100px;
+        text-align: center;
+    
+        p {
+            font-family: $font-medium;
+            font-size: 35px;
+            color: #2B354F;
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+    
+        .highlight {
+            font-family: $font-bold;
+            color: #4B7BF2;
+        }
+    }
+    
+    .text-container-five {
+        position: relative;
+        width: 1100px;
+    
+        .left-content-five {
+            position: relative;
+            margin-left: 50px;
+            left: 0%;
+            top: 0%;
+            bottom: 0%;
+        
+            .maintitle {
+                position: relative;
+                font-family: $font-bold;
+                font-size: 25px;
+                color: #4B7BF2;
+                margin-bottom: 50px;
+                z-index: 3;
+            }
+    
+            p {
+                position: relative;
+                font-family: $font-medium;
+                font-size: 40px;
+                color: #000000;
+                line-height: 0.6;
+                z-index: 3;
+            }
+        
+            .smalltitle {
+                position: relative;
+                font-family: $font-regular;
+                font-size: 27px;
+                color: #707C9D;
+                line-height: 0.5;
+                z-index: 1;
+            }
+        }
+    
+        .right-content-five {
+            position: absolute;
+            margin-right: 50px;
+            z-index: 2;
+            display: flex; 
+            align-items: center;
+            right: 0%;
+            top: 0%;
+            bottom: 0%;
+        }
+    }
+    
+    .text-container-six {
+        position: relative;
+        width: 1100px;
+    
+        .left-content-six {
+            position: relative;
+            margin-left: 70px;
+            left: 0%;
+            top: 0%;
+            bottom: 0%;
+    
+            .maintitle {
+                position: relative;
+                font-family: $font-bold;
+                z-index: 3;
+                font-size: 25px;
+                color: #4B7BF2;
+                margin-bottom: 40px;
+            }
+            
+            .subtitle {
+                position: relative;
+                font-family: $font-medium;
+                z-index: 3;
+                font-size: 36px;
+                color: #000000;
+                line-height: 0.6;
+            }
+        }
+    
+        .right-content-six {
+            position: absolute;
+            margin-right: 70px;
+            right: 0%;
+            top: 0%;
+            bottom: 0%;
+    
+            .smalltitle {
+                position: relative;
+                font-family: $font-regular;
+                z-index: 3;
+                font-size: 25px;
+                color: #424242;
+                line-height: 0.5;
+                margin-left: 30px;
+            }
+        }
+    }
+    
+    .text-container-seven {
+        position: relative;
+        width: 1100px;
+        display: flex;
+        justify-content: center;
+    
+        .left-content-seven {
+            position: absolute;
+            display: flex;
+            align-items: start;
+            z-index: 2;
+            margin-left: 50px;
+            left: 0%;
+            top: 0%;
+            bottom: 0%;
+    
+            .maintitle {
+                font-family: $font-bold;
+                font-size: 30px;
+                color: #4B7BF2;
+                margin-bottom: 45px;
+            }
+        
+            p {
+                font-family: $font-medium;
+                font-size: 25px;
+                color: #2B354F;
+                line-height: 0.5;
+            }
+        }
+    
+        .center-content-seven {
+            position: relative;
+            z-index: 1;
+        }
+    
+        .right-content-seven {
+            position: absolute;
+            display: flex;
+            align-items: end;
+            z-index: 2;
+            margin-right: 50px;
+            right: 0%;
+            top: 0%;
+            bottom: 0%;
+        
+            p {
+                position: relative;
+                font-family: $font-medium;
+                font-size: 25px;
+                color: #424242;
+                line-height: 0.5;
+            }
+        }
+    }
+    
+    .text-container-eight {
+        width: 1100px;
+        text-align: center;
+        line-height: 0;
+    
+        p {
+            font-family: $font-medium;
+            font-size: 35px;
+            color: #ADB5CA;
+        }
+    
+        .large-text {
+            font-family: $font-bold;
+            font-size: 70px;
+            color: #2B354F;
+        }
+    }
+    
+    .text-container-nine {
+        width: 1100px;
+        text-align: center;
+        color: #FFFFFF;
+        line-height: 0;
+    
+        p {
+            font-family: $font-medium;
+            font-size: 35px;
+        }
+    
+        .large-text {
+            font-family: $document-title;
+            font-size: 100px;
+        }
+    }
+}
+
+// 모바일 사이즈
+@media (min-width: 0px) {
+    @keyframes slideInTop {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes slideInBottom {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    // 📝 .maintitle (왼쪽 → 오른쪽)
+.mobile-section.one .top-content-one .maintitle {
+    opacity: 0;
+    animation: slideInTop 0.8s ease-out forwards;
+    animation-delay: 0s;
+}
+
+// 🖼️ bottom-content 이미지 (오른쪽 → 왼쪽, 0.3초 후 등장)
+.mobile-section.one .bottom-content-one img {
+    opacity: 0;
+    animation: slideInBottom 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+// 📝 top-content의 p 태그 & 버튼들 (왼쪽 → 오른쪽, 0.6초 후 등장)
+.mobile-section.one .top-content-one p,
+.mobile-section.one .top-content-one button {
+    opacity: 0;
+    animation: slideInTop 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+$fade-in-sections: (two, three, four, five, six, seven, eight);
+
+@each $name in $fade-in-sections {
+    // 기본적으로 모든 <p> 태그는 페이드인 적용
+    .mobile-section.#{$name} .mobile-text-container-#{$name} p,
+    .mobile-section.#{$name} .top-content-#{$name} p {
+        opacity: 0;
+        transform: translateY(100px);
+        transition: opacity 1.5s ease, transform 1.5s ease;
+    }
+
+    .mobile-section.#{$name}.visible .mobile-text-container-#{$name} p,
+    .mobile-section.#{$name}.visible .top-content-#{$name} p {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    // 🖼️ bottom-content img는 0.5초 후 등장
+    .mobile-section.#{$name} .bottom-content-#{$name} img {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease 0.5s, transform 1.5s ease 0.5s;
+    }
+
+    .mobile-section.#{$name}.visible .bottom-content-#{$name} img {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// 🎯 3번 섹션 (좌우 이동 적용)
+.mobile-section.three .top-content-three p {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.mobile-section.three.visible .top-content-three p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-section.three .bottom-content-three img {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease 0.5s, transform 1.5s ease 0.5s;
+}
+
+.mobile-section.three.visible .bottom-content-three img {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+// 🎯 5번 섹션 (좌우 이동 적용)
+.mobile-section.five .top-content-five p {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.mobile-section.five.visible .top-content-five p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-section.five .center-content-five img {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease 0.5s, transform 1.5s ease 0.5s;
+}
+
+.mobile-section.five.visible .center-content-five img {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+// 📝 smalltitle - bottom-content 등장 후 0.5초 후 나타남
+.mobile-section.five .bottom-content-five .smalltitle {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 1.5s ease 1s, transform 1.5s ease 1s;
+}
+
+.mobile-section.five.visible .bottom-content-five .smalltitle {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+// 🎯 6번 섹션 (순차적 등장)
+.mobile-section.six .top-content-six p {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.mobile-section.six.visible .top-content-six p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+// 🖼️ center-content img (0.5초 후 등장)
+.mobile-section.six .center-content-six img {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease 0.5s, transform 1.5s ease 0.5s;
+}
+
+.mobile-section.six.visible .center-content-six img {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-section.six .bottom-content-six p {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 1.5s ease 1s, transform 1.5s ease 1s;
+}
+
+.mobile-section.six.visible .bottom-content-six p {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.mobile-section.seven .top-content-seven p {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 1s ease, transform 1.5s ease;
+}
+
+.mobile-section.seven.visible .top-content-seven p {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+// 🎯 7번 섹션 (좌우 이동 및 중앙 이미지 페이드인 적용)
+.mobile-section.seven .center-content-seven img {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease 0.5s, transform 1.5s ease 0.5s;
+}
+
+.mobile-section.seven.visible .center-content-seven img {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+// 📝 bottom-content p (1초 후 등장)
+.mobile-section.seven .bottom-content-seven p {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 1s ease 1s, transform 1.5s ease 1s;
+}
+
+.mobile-section.seven.visible .bottom-content-seven p {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+// 🎯 8번 섹션 (기본 페이드인)
+.mobile-section.eight .mobile-text-container-eight p {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease, transform 1.5s ease;
+}
+
+.mobile-section.eight.visible .mobile-text-container-eight p {
+    opacity: 1;
+    transform: translateY(0);
+}
+    
+    // ✨ 섹션별 높이 및 배경 스타일
+    $sections: (
+        one: (min-height: 700px, height: 100vh, background: linear-gradient(to bottom, #FFFFFF 0%, #F8FAFF 67%, #E9F0FF 89%, #DFE8FF 100%)),
+        two: (height: clamp(225px, 75vw, 450px), background-color: #FFFFFF),
+        three: (height: clamp(601px, 200vw, 1200px), background-color: #F9FAFB),
+        four: (height: clamp(225px, 75vw, 450px), background-color: #FFFFFF),
+        five: (height: clamp(675px, 225vw, 1350px), background-color: #FBFCFF),
+        six: (height: clamp(675px, 225vw, 1350px), background-color: #FFFFFF),
+        seven: (height: clamp(675px, 225vw, 1350px), background-color: #F8FAFF),
+        eight: (min-height: 250px, height: 100vh, background-color: #FFFFFF),
+        nine: (min-height: 250px, height: 100vh, background-color: #2B354F)
+    );
+    
+    @each $name, $properties in $sections {
+        .mobile-section.#{$name} {
+            @each $property, $value in $properties {
+                #{$property}: $value;
+            }
+        }
+    }
+
+    .mobile-text-container-one {
+        width: 1100px;
+
+        .top-content-one {
+            .maintitle {
+                font-family: $font-thin;
+                font-size: clamp(35px, 10vw, 55px);
+                color: #414B6A;
+            }
+        
+            .maintitle-highlight {
+                font-family: $font-bold;
+                font-size: clamp(35px, 10vw, 55px);
+                color: #4B7BF2;
+            }
+        
+            p {
+                text-align: center;
+                font-family: $font-medium;
+                font-size: clamp(15px, 5vw, 30px);
+                color: #2B354F;
+                line-height: 0.7;
+            }
+        }
+    
+        .bottom-content-one {
+            margin-top: clamp(40px, 7vh, 100px);
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    
+    .mobile-text-container-two {
+        width: 1100px;
+        text-align: center;
+    
+        p {
+            font-family: $font-medium;
+            font-size: clamp(15px, 5vw, 30px);
+            color: #2B354F;
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+    
+        .highlight {
+            font-family: $font-bold;
+            color: #4B7BF2;
+        }
+    }
+    
+    .mobile-text-container-three {
+        width: 1100px;
+    
+        .top-content-three {
+            margin-left: 30px;
+    
+            .maintitle {
+                font-family: $font-bold;
+                font-size: clamp(15px, 3.5vw, 25px);
+                color: #4B7BF2;
+            }
+        
+            p {
+                font-family: $font-medium;
+                font-size: clamp(24px, 5.6vw, 40px);
+                color: #000000;
+                line-height: 0.6;
+            }
+        }
+    
+        .bottom-content-three {
+            margin-top: clamp(90px, 21vw, 150px);
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    
+    .mobile-text-container-four {
+        width: 1100px;
+        text-align: center;
+    
+        p {
+            font-family: $font-medium;
+            font-size: clamp(15px, 5vw, 30px);
+            color: #2B354F;
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+    
+        .highlight {
+            font-family: $font-bold;
+            color: #4B7BF2;
+        }
+    }
+    
+    .mobile-text-container-five {
+        width: 1100px;
+    
+        .top-content-five {
+            margin-left: 30px;
+        
+            .maintitle {
+                position: relative;
+                font-family: $font-bold;
+                font-size: clamp(15px, 3.5vw, 25px);
+                color: #4B7BF2;
+                margin-bottom: clamp(30px, 7vw, 50px);
+            }
+    
+            p {
+                font-family: $font-medium;
+                font-size: clamp(24px, 5.6vw, 40px);
+                color: #000000;
+                line-height: 0.6;
+            }
+        }
+    
+        .center-content-five {
+            margin-top: clamp(90px, 21vw, 150px);
+            margin-bottom: clamp(60px, 14vw, 100px);
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bottom-content-five {
+            
+            .smalltitle {
+                font-family: $font-regular;
+                font-size: clamp(18px, 4.2vw, 30px);
+                text-align: center;
+                color: #707C9D;
+                line-height: 0.5;
+            }
+        }
+    }
+    
+    .mobile-text-container-six {
+        width: 1100px;
+    
+        .top-content-six {
+            margin-left: 30px;
+    
+            .maintitle {
+                font-family: $font-bold;
+                font-size: clamp(15px, 3.5vw, 25px);;
+                color: #4B7BF2;
+                margin-bottom: clamp(24px, 5.6vw, 40px);
+            }
+            
+            .subtitle {
+                font-family: $font-medium;
+                font-size: clamp(21.6px, 5vw, 30px);
+                color: #000000;
+                line-height: 0.6;
+            }
+        }
+
+        .center-content-six {
+            margin-top: clamp(90px, 21vw, 150px);
+            margin-bottom: clamp(90px, 21vw, 150px);
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .bottom-content-six {
+    
+            .smalltitle {
+                font-family: $font-regular;
+                font-size: clamp(15px, 3.5vw, 25px);;
+                color: #424242;
+                line-height: 0.5;
+                margin-left: 40px;
+            }
+        }
+    }
+    
+    .mobile-text-container-seven {
+        position: relative;
+        width: 1100px;
+        display: flex;
+        justify-content: center;
+    
+        .top-content-seven {
+            position: absolute;
+            display: flex;
+            align-items: start;
+            margin-left: 30px;
+            left: 0%;
+            top: 0%;
+            bottom: 0%;
+    
+            .maintitle {
+                font-family: $font-bold;
+                font-size: clamp(18px, 4.2vw, 30px);
+                color: #4B7BF2;
+                margin-bottom: clamp(27px, 6.3vw, 45px);
+            }
+        
+            p {
+                font-family: $font-medium;
+                font-size: clamp(15px, 3.5vw, 25px);
+                color: #2B354F;
+                line-height: 0.5;
+            }
+        }
+    
+        .center-content-seven {
+            position: relative;
+            margin-top: clamp(132px, 30.2vw, 220px);
+            margin-bottom: clamp(132px, 30.2vw, 220px);
+        }
+    
+        .bottom-content-seven {
+            position: absolute;
+            display: flex;
+            align-items: end;
+            margin-right: 30px;
+            right: 0%;
+            top: 0%;
+            bottom: 0%;
+        
+            p {
+                position: relative;
+                font-family: $font-medium;
+                font-size: clamp(15px, 3.5vw, 25px);
+                color: #424242;
+                line-height: 0.5;
+            }
+        }
+    }
+    
+    .mobile-text-container-eight {
+        width: 1100px;
+        text-align: center;
+        line-height: 0;
+    
+        p {
+            font-family: $font-medium;
+            font-size: clamp(18px, 4.2vw, 30px);
+            color: #ADB5CA;
+        }
+    
+        .large-text {
+            font-family: $font-bold;
+            font-size: clamp(36px, 8.4vw, 60px);
+            color: #2B354F;
+        }
+    }
+    
+    .mobile-text-container-nine {
+        width: 1100px;
+        text-align: center;
+        color: #FFFFFF;
+        line-height: 0;
+    
+        p {
+            font-family: $font-medium;
+            font-size: clamp(18px, 4.2vw, 30px);
+        }
+    
+        .large-text {
+            font-family: $document-title;
+            font-size: clamp(54px, 12.6vw, 90px);
+        }
+    }
+}
