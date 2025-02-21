@@ -1,5 +1,3 @@
-// pages/AllDocuments.tsx
-import React from 'react';
 import HeaderDesktop from "../components/Header.tsx";
 
 function TownCommunity() {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Icon from "@mdi/react";
 import { mdiMagnify, mdiAccountCircle, mdiMenu } from "@mdi/js";
@@ -34,7 +34,7 @@ function Header() {
                 <IconButton disableTouchRipple component={Link} to="/" className={`mobile-header_icon ${location.pathname === "/" ? "active" : ""}`}>
                   <Icon path={mdiAccountCircle} size={1} />
                 </IconButton>
-                <IconButton onClick={() => toggleDrawer(!isDrawerOpen)} sx={{ ripple: true }} className={`mobile-header_icon ${isDrawerOpen ? "active" : ""}`}>
+                <IconButton onClick={() => toggleDrawer(!isDrawerOpen)} className={`mobile-header_icon ${isDrawerOpen ? "active" : ""}`}>
                   <Icon path={mdiMenu} size={1} />
                 </IconButton>
               </div>
